@@ -27,13 +27,6 @@ f4_1(x)
 x = linspace(-4, -1, 31)
 f4_2(x)
 
-% 5
-x = -pi:0.1:pi
-y = sin(x) - x
-plot(x, y)
-
-
-
 
 % 1
 function y = p(x)
