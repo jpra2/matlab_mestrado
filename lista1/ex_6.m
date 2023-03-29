@@ -10,29 +10,29 @@ clc
 % os centroides dos retangulos sao colineares
 
 % as forcas N e o momento fletor sao aplicados na extremidade livre da viga
-% que esta engastada em z = 0
+% que esta engastada em x = 0
 
 % parametros do retangulo superior (retangulo 1)
 % a base deve ser maior que a altura
 % b1 = base , h1 = altura
 
-b1 = 250;
-h1 = 20;
+b1 = 0.06;
+h1 = 0.02;
 
 
 % parametros do retangulo inferior (retangulo 2)
 % a altura deve ser maior que a base
 % b2 = base , h2 = altura
 
-b2 = 20;
-h2 = 250;
+b2 = 0.02;
+h2 = 0.06;
 
-% parametros da forca aplicada (N), momento fletor (M) e comprimento (L)
+% parametros da forca aplicada (N [N]), momento fletor (M [Nm]) e comprimento (L [m])
 
-N = 10;
-M = 100;
-L = 10;
-F = 2*N;
+N = 2000;
+M = 150;
+L = 6;
+F = 2*N; % forca aplicada na extremidade livre (par de forcas)
 
 % posicao x para o calculo da tensao
 % x deve ser maior que 0 e menor que L
@@ -82,19 +82,8 @@ y_max = max(y);
 
 
 plot(y, sigma);
-hold on;
-plot(ones(n_points,1)*cent_global(2), linspace(sigma_min, sigma_max, n_points), ':r', 'LineWidth',1.5);
-
-hold on;
-y = cent_global(2)
-y_def = cent_global(2) - y;
-sigma_centroide = (M_x*y_def)/momento_global;
-plot(y2, ones(n_points, 1)*sigma_centroide, '--k', 'LineWidth',1.5)
-
-
 xlabel('Altura');
 ylabel('Tensao');
 title('Tensao x Altura');
-legend({'Tensao x Altura','Posicao do centroide','Tensao no centroide'});
 xlim([y_min, y_max]);
 ylim([sigma_min, sigma_max]);
