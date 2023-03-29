@@ -68,18 +68,33 @@ M_x = -1*(M + F*L -F*x);
 % Valores de tracao e compressao
 % y deve ser maior que 0 e menor que h1+h2
 
-y = cent_global(2);
+n_points = 20;
+y = linspace(0, h1+h2, n_points);
+y2 = y;
 y_def = cent_global(2) - y;
 
-% valor da tensao no ponto ao longo da secao
+% valor da tensao ao longo da secao
 sigma = (M_x*y_def)/momento_global;
+sigma_min = min(sigma);
+sigma_max = max(sigma);
+y_min = min(y);
+y_max = max(y);
 
-% valores maximos de tensao
 
-y = h1+h2;
+plot(y, sigma);
+hold on;
+plot(ones(n_points,1)*cent_global(2), linspace(sigma_min, sigma_max, n_points), ':r', 'LineWidth',1.5);
+
+hold on;
+y = cent_global(2)
 y_def = cent_global(2) - y;
-sigma_max_tracao = (M_x*y_def)/momento_global;
+sigma_centroide = (M_x*y_def)/momento_global;
+plot(y2, ones(n_points, 1)*sigma_centroide, '--k', 'LineWidth',1.5)
 
-y = 0;
-y_def = cent_global(2) - y;
-sigma_max_compressao = (M_x*y_def)/momento_global;
+
+xlabel('Altura');
+ylabel('Tensao');
+title('Tensao x Altura');
+legend({'Tensao x Altura','Posicao do centroide','Tensao no centroide'});
+xlim([y_min, y_max]);
+ylim([sigma_min, sigma_max]);
