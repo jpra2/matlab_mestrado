@@ -32,6 +32,11 @@ h2 = 250;
 N = 10;
 M = 100;
 L = 10;
+F = 2*N;
+
+% posicao x para o calculo da tensao
+% x deve ser maior que 0 e menor que L
+x = L/2;
 
 % calculo dos centroides dos retangulos
 %retangulo 1 
@@ -44,8 +49,8 @@ area_1 = b1*h1;
 area_2 = b2*h2;
 
 %calculo dos momentos de inercia em relacao aos centroides dos retangulos
-momento_1 = momento_inercia(b1, h1);
-momento_2 = momento_inercia(b2, h2);
+momento_1 = (b1*(h1^3))/12;
+momento_2 = (b2*(h2^3))/12;
 
 % calculo do centroide global
 cent_global = (area_1*cent_1 + area_2*cent_2)/(area_1 + area_2);
@@ -55,12 +60,26 @@ dist_1 = norm(cent_global - cent_1);
 dist_2 = norm(cent_global - cent_2);
 momento_global = momento_1 + area_1*(dist_1^2) + momento_2 + area_2*(dist_2^2);
 
+% Momento resistente (M_x) em funcao da distancia em relacao ao ponto de
+% engaste (x)
 
+M_x = -1*(M + F*L -F*x);
 
+% Valores de tracao e compressao
+% y deve ser maior que 0 e menor que h1+h2
 
+y = cent_global(2);
+y_def = cent_global(2) - y;
 
+% valor da tensao no ponto ao longo da secao
+sigma = (M_x*y_def)/momento_global;
 
+% valores maximos de tensao
 
-function y = momento_inercia(b, h)
-    y = (b*(h^3))/12;
-end
+y = h1+h2;
+y_def = cent_global(2) - y;
+sigma_max_tracao = (M_x*y_def)/momento_global;
+
+y = 0;
+y_def = cent_global(2) - y;
+sigma_max_compressao = (M_x*y_def)/momento_global;
