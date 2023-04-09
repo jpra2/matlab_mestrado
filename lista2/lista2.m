@@ -2,17 +2,23 @@ clear all
 clc
 
 % 1
+
 x = [1/15 3.1477e-6];
-double(x);
-uint8(x);
-uint16(x);
-uint32(x);
-uint64(x);
-int8(x);
-int16(x);
-int32(x);
-int64(x);
-num2str(x);
+format short;
+x
+format short e;
+x
+
+format long;
+x
+
+format hex;
+x
+
+format +;
+x
+
+format short e;
 
 % 2
 A = magic(3);
