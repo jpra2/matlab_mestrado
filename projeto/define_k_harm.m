@@ -1,4 +1,4 @@
-function [k_harm] = define_k_harm(volumes_perm, internal_faces, adjacencies, unitary_vector_internal)
+function [k_harm] = define_k_harm(volumes_perm, internal_faces, adjacencies, unitary_vector_internal, h_dist)
 
 ni = length(internal_faces);
 k_harm = zeros(ni, 1);
@@ -11,7 +11,8 @@ for i = 1:ni
     
     k1 = vec_unit * perm1 * vec_unit';
     k2 = vec_unit * perm2 * vec_unit';
-    
-    k_harm(i) = (2*k1*k2)/(k1 + k2);  
+    h1 = h_dist(i, 1);
+    h2 = h_dist(i, 2);
+    k_harm(i) = (h1 + h2)/(h1/k1 + h2/k2);  
 
 end

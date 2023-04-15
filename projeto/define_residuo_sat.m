@@ -1,8 +1,11 @@
-function residuo = define_residuo_sat(x ,residuo, obj, presc_sat, sat0, pressure)
+function residuo = define_residuo_sat(x ,residuo, presc_sat)
+global obj;
 
 n_volumes = length(obj.volumes);
 adj_matrix_T = obj.adj_matrix';
 upwind_internal_faces = obj.adjacencies(obj.upwind);
+sat0 = obj.x0_sat;
+pressure = obj.x0_press;
 
 for i = 1:n_volumes
     

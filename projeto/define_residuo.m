@@ -1,13 +1,13 @@
-function residuo = define_residuo(x, obj, residuo, presc, saturation)
+function residuo = define_residuo(x, residuo, presc)
+global obj;
 
 n_volumes = length(obj.volumes);
 adj_matrix_T = obj.adj_matrix';
 % residuo = myAD(zeros(n_volumes, 1));
 % residuo = zeros(n_volumes, 1);
+saturation = obj.x0_sat;
 
 upwind_internal_faces = obj.adjacencies(obj.upwind);
-
-
 
 for i = 1:n_volumes
     
