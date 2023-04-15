@@ -1,4 +1,4 @@
-function pressure = define_pressure_iteration()
+function [pressure, loop_p] = define_pressure_iteration()
 global obj;
 global presc;
 
@@ -18,7 +18,6 @@ while continue_pressure
     dx = J\resp;
     x_press = x_press + dx;
     local_p_tol = max(abs(dx));
-    disp(local_p_tol);
     
     if local_p_tol <= obj.p_tol 
         continue_pressure(:) = 0;

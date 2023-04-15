@@ -58,7 +58,7 @@ obj.x0_sat = zeros(n, 1);
 obj.x0_sat(1:end) = obj.Swr;
 
 %% definir passo de tempo
-obj.dt = 1;
+obj.dt = 0.3;
 
 %% definir tolerancia na pressao e saturacao
 obj.p_tol = 1e-13;
@@ -67,6 +67,7 @@ obj.sat_tol = 1e-7;
 %% definir maximo de iteracoes
 obj.max_it_pressure = 1000;
 obj.max_it_sat = 1000;
+obj.global_max_it = 1000;
 
 %% definir tempo maximo de simulacao
 obj.t_max_simulation = 100;
@@ -86,27 +87,29 @@ global presc_sat;
 
 %% simulacao
 
-global_max_it = 1000;
 continue_global = true(1,1);
 t_simulation = 0;
 loop_global = 0;
-
 
 while continue_global
     
     loop_global = loop_global + 1;
     
-    obj.x0_press(:) = define_pressure_iteration;
-    obj.x0_sat(:) = define_sat_iteration;
+    [obj.x0_press, pressure_it] = define_pressure_iteration;
+    [obj.x0_sat, sat_it]  = define_sat_iteration;
     
     all_pressures(loop_global,:) = obj.x0_press;
     all_saturations(loop_global,:) = obj.x0_sat;
     t_simulation = t_simulation + obj.dt;
-    all_times(loop_global) = t_simulation
+    all_times(loop_global) = t_simulation;
+    pressure_iterations(loop_global) = pressure_it;
+    sat_iterations(loop_global) = sat_it;
     
     if t_simulation > obj.t_max_simulation
         continue_global = 0;
-    end    
+    elseif loop_global > obj.global_max_it
+        continue_global = 0;
+    end
     
 end
 

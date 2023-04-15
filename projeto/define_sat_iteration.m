@@ -1,4 +1,6 @@
-function saturation = define_sat_iteration()
+function [saturation, loop_sat] = define_sat_iteration()
+% retorna a saturacao e a quantidade de iteracoes
+
 global obj;
 global presc_sat;
 

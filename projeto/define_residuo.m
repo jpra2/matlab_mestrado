@@ -1,4 +1,6 @@
 function residuo = define_residuo(x, residuo, presc)
+% define o residuo da pressao
+
 global obj;
 
 n_volumes = length(obj.volumes);
