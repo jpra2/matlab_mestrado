@@ -1,5 +1,6 @@
 *.mat
 *.zip
+!lista4.zip
 !myAutomaticDifferentiation.zip
 *.rar
 *.m~
