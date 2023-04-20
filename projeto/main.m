@@ -32,6 +32,7 @@ obj.Swor = 0.8;
 %% definir as faces internas e as adjacencias
 
 [obj.internal_faces, obj.adjacencies, obj.adj_matrix, obj.h_dist] = define_internal_faces(n);
+obj.adj_matrix = mount_adj_matrix(length(obj.internal_faces), length(obj.volumes), obj.adjacencies)
 % adjacencies = matrix(n_internal_faces, 2)
 % adj_matrix = bool matrix(n_internal_faces, n_volumes)
 
