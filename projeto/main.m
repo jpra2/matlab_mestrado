@@ -1,15 +1,10 @@
 clear all
 clc
+variables_path = 'dados/variables_p1.mat';
+obj = load(variables_path);
 
 %% definir os volumes
-n = 10;
-obj.volumes = 1:n;
-
-%% definir centroide dos volumes
-obj.volumes_centroids = define_volumes_centroids(n, 1);
-
-%% definir permeabilidade dos volumes
-obj.volumes_perm = define_volumes_perm(n);
+n = length(obj.volumes);
 
 %% definir viscosidade da agua e do oleo
 obj.mi_w = 1.0; % agua
@@ -31,7 +26,7 @@ obj.Swor = 0.8;
 
 %% definir as faces internas e as adjacencias
 
-[obj.internal_faces, obj.adjacencies, obj.adj_matrix, obj.h_dist] = define_internal_faces(n);
+% [obj.internal_faces, obj.adjacencies, obj.adj_matrix, obj.h_dist] = define_internal_faces(n);
 obj.adj_matrix = mount_adj_matrix(length(obj.internal_faces), length(obj.volumes), obj.adjacencies)
 % adjacencies = matrix(n_internal_faces, 2)
 % adj_matrix = bool matrix(n_internal_faces, n_volumes)
@@ -92,19 +87,28 @@ continue_global = true(1,1);
 t_simulation = 0;
 loop_global = 0;
 
+resp.all_pressures(loop_global,:) = obj.x0_press;
+resp.all_saturations(loop_global,:) = obj.x0_sat;
+resp.t_simulation = t_simulation + obj.dt;
+resp.all_times(loop_global) = t_simulation;
+resp.all_loops(loop_global) = loop_global;
+resp.pressure_iterations(loop_global) = 0;
+resp.sat_iterations(loop_global) = 0;
+
 while continue_global
     
     loop_global = loop_global + 1;
     
     [obj.x0_press, pressure_it] = define_pressure_iteration;
-    [obj.x0_sat, sat_it]  = define_sat_iteration;
+    [obj.x0_sat, sat_it] = define_sat_iteration;
     
-    all_pressures(loop_global,:) = obj.x0_press;
-    all_saturations(loop_global,:) = obj.x0_sat;
-    t_simulation = t_simulation + obj.dt;
-    all_times(loop_global) = t_simulation;
-    pressure_iterations(loop_global) = pressure_it;
-    sat_iterations(loop_global) = sat_it;
+    resp.all_pressures(loop_global,:) = obj.x0_press;
+    resp.all_saturations(loop_global,:) = obj.x0_sat;
+    resp.t_simulation = t_simulation + obj.dt;
+    resp.all_times(loop_global) = t_simulation;
+    resp.all_loops(loop_global) = loop_global;
+    resp.pressure_iterations(loop_global) = pressure_it;
+    resp.sat_iterations(loop_global) = sat_it;
     
     if t_simulation > obj.t_max_simulation
         continue_global = 0;
@@ -113,4 +117,6 @@ while continue_global
     end
     
 end
+
+save('resp.mat', '-struct', 'resp');
 
