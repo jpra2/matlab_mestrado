@@ -13,8 +13,8 @@ elseif S < Swr
     kro = k0o;
 else
     swnorm = (S - Swr)./(Swor - Swr);
-    krw = k0w*(swnorm^nw);
-    kro = k0o*((1 - swnorm)^no);
+    krw = k0w*(swnorm.^nw);
+    kro = k0o*((1 - swnorm).^no);
 end
 
 end

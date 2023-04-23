@@ -21,12 +21,11 @@ for i = 1:n_volumes
     
     faces_volume = obj.internal_faces(adj_matrix_T(i, :));    
     for face = faces_volume'
-        swnorm = (saturation(upwind_internal_faces(face)) - obj.Swr)./(obj.Swor - obj.Swr);
+        S = saturation(upwind_internal_faces(face));
         vol2 = obj.adjacencies(face, :);
         vol2 = vol2(vol2 ~= i);
         
-        krw = obj.k0w*(swnorm^obj.nw);
-        kro = obj.k0o*((1 - swnorm)^obj.no);
+        [krw, kro] = define_kr_corey(S, obj.Swr, obj.Swor, obj.nw, obj.no, obj.k0w, obj.k0o);
         mob_w = krw./obj.mi_w;
         mob_o = kro./obj.mi_o;
         mob_t = mob_w + mob_o;

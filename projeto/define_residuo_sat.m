@@ -1,6 +1,5 @@
 function residuo = define_residuo_sat(x ,residuo, presc_sat)
 % define o residuo da saturacao
-
 global obj;
 
 n_volumes = length(obj.volumes);
@@ -20,12 +19,9 @@ for i = 1:n_volumes
     faces_volume = obj.internal_faces(adj_matrix_T(i, :));    
     for face = faces_volume'
         S = x(upwind_internal_faces(face));
-%         swnorm = (x(upwind_internal_faces(face)) - obj.Swr)./(obj.Swor - obj.Swr);
         vol2 = obj.adjacencies(face, :);
         vol2 = vol2(vol2 ~= i);
         
-%         krw = obj.k0w*(swnorm^obj.nw);
-%         kro = obj.k0o*((1 - swnorm)^obj.no);
         [krw, kro] = define_kr_corey(S, obj.Swr, obj.Swor, obj.nw, obj.no, obj.k0w, obj.k0o);
         mob_w = krw./obj.mi_w;
         mob_o = kro./obj.mi_o;
@@ -43,7 +39,7 @@ for i = 1:n_volumes
            
     end
     
-    residuo(i) = residuo(i) + obj.porosity(i)*(x(i) - sat0(i))./obj.dt;
+    residuo(i) = residuo(i) + obj.vol_volumes(i)*obj.porosity(i)*(x(i) - sat0(i))./obj.dt;
 end
 
 
