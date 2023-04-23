@@ -43,7 +43,7 @@ for i = 1:n_volumes
            
     end
     
-    residuo(i) = residuo(i) + obj.porosity(i)*(x(i) - sat0(i))./obj.dt;
+    residuo(i) = residuo(i) + obj.vol_volumes(i)*obj.porosity(i)*(x(i) - sat0(i))./obj.dt;
 end
 
 
