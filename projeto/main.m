@@ -53,6 +53,7 @@ obj.sat_tol = 1e-4;
 obj.max_it_pressure = 10000;
 obj.max_it_sat = 10000;
 obj.global_max_it = 200;
+obj.max_vpi = 0.75;
 
 %% definir tempo maximo de simulacao
 obj.t_max_simulation = 200000;
@@ -84,6 +85,7 @@ resp.all_saturations(loop_global,:) = obj.x0_sat;
 resp.all_times(loop_global) = t_simulation;
 resp.pressure_iterations(loop_global) = 0;
 resp.sat_iterations(loop_global) = 0;
+resp.all_dt(loop_global) = 0
 
 while continue_global
     
@@ -95,6 +97,7 @@ while continue_global
     loop_global = loop_global + 1;
     t_simulation = t_simulation + obj.dt;
     
+    resp.all_dt(loop_global) = obj.dt;
     resp.all_pressures(loop_global-1,:) = obj.x0_press;
     resp.all_saturations(loop_global,:) = obj.x0_sat;
     resp.all_times(loop_global) = t_simulation;
