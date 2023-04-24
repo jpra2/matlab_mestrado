@@ -45,20 +45,20 @@ obj.dt = 0.5;
 
 %% definir tolerancia na pressao e saturacao
 obj.p_tol = 1e-13;
-obj.sat_tol = 1e-7;
+obj.sat_tol = 1e-4;
 
 
 %% definir maximo de iteracoes
 
 obj.max_it_pressure = 10000;
 obj.max_it_sat = 10000;
-obj.global_max_it = 5;
+obj.global_max_it = 200;
 
 %% definir tempo maximo de simulacao
-obj.t_max_simulation = 100;
+obj.t_max_simulation = 200000;
 
 %% definir cfl
-obj.cfl = 0.8;
+obj.cfl = 0.9;
 
 %% definir prescricao de pressao
 global presc;
@@ -87,7 +87,8 @@ resp.sat_iterations(loop_global) = 0;
 
 while continue_global
     
-    [obj.x0_press, pressure_it] = define_pressure_iteration();
+%     [obj.x0_press, pressure_it] = define_pressure_iteration();
+    [obj.x0_press, pressure_it] = define_pressure_iteration_2();
     [obj.dt, obj.upwind] = calculate_cfl();
     [obj.x0_sat, sat_it]  = define_sat_iteration();
     
@@ -107,7 +108,6 @@ while continue_global
     end
     
     disp(loop_global);
-    
     
 end
 

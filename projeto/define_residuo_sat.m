@@ -17,6 +17,8 @@ for i = 1:n_volumes
         continue
     end
     
+    qt_volume = 0;
+    
     faces_volume = obj.internal_faces(adj_matrix_T(i, :));    
     for face = faces_volume'
         S = x(upwind_internal_faces(face));
@@ -37,13 +39,19 @@ for i = 1:n_volumes
         grad_p = (pressure(vol2) - pressure(i))./dist;
         
         qt = -grad_p*mob_t*obj.internal_areas(face)*k_harm;
+        qt_volume = qt_volume + qt;
         qw = qt*(mob_w./mob_t);
         
         residuo(i) = residuo(i) + qw;
            
     end
-    
-    residuo(i) = residuo(i) + obj.vol_volumes(i)*obj.porosity(i)*(x(i) - sat0(i))./obj.dt;
+    S = x(i);
+    [krw, kro] = define_kr_corey(S, obj.Swr, obj.Swor, obj.nw, obj.no, obj.k0w, obj.k0o);
+    mob_w = krw./obj.mi_w;
+    mob_o = kro./obj.mi_o;
+    mob_t = mob_w + mob_o;
+    fw_volume = mob_w./mob_t;
+    residuo(i) = residuo(i) -fw_volume.*qt_volume  + obj.vol_volumes(i)*obj.porosity(i)*(x(i) - sat0(i))./obj.dt;
 end
 
 

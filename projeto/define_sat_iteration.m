@@ -19,6 +19,8 @@ while continue_sat
     x_sat = x_sat + ds;
     local_sat_tol = norm(ds);
     
+    disp(local_sat_tol);
+    
     if local_sat_tol <= obj.sat_tol
         continue_sat = 0;    
     elseif loop_sat > obj.max_it_sat
