@@ -1,4 +1,4 @@
-function [pressure, loop_p] = define_pressure_iteration_2()
+function [pressure, loop_p] = define_pressure()
 global obj;
 global presc;
 
@@ -33,7 +33,7 @@ for i = 1:n_presc
     volume = presc.volumes_pressure_defined(i);
     transmissibility(volume,:) = 0;
     transmissibility(volume, volume) = 1;
-    source(volume) = presc.pressure_defined_values(i)*100;
+    source(volume) = presc.pressure_defined_values(i);
 end
 
 pressure = transmissibility\source;

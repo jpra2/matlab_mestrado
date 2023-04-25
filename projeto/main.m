@@ -8,6 +8,7 @@ obj = load(variables_path);
 obj.internal_areas = obj.internal_areas';
 obj.porosity = obj.porosity';
 obj.internal_faces = obj.internal_faces';
+obj.vol_volumes = obj.vol_volumes';
 
 %% definir viscosidade da agua e do oleo
 obj.mi_w = 1.0; % agua
@@ -52,14 +53,14 @@ obj.sat_tol = 1e-4;
 
 obj.max_it_pressure = 10000;
 obj.max_it_sat = 10000;
-obj.global_max_it = 200;
+obj.global_max_it = 20000;
 obj.max_vpi = 0.75;
 
 %% definir tempo maximo de simulacao
 obj.t_max_simulation = 200000;
 
 %% definir cfl
-obj.cfl = 0.9;
+obj.cfl = 2;
 
 %% definir prescricao de pressao
 global presc;
@@ -83,16 +84,20 @@ loop_global = 1;
 resp.all_pressures(loop_global,:) = obj.x0_press;
 resp.all_saturations(loop_global,:) = obj.x0_sat;
 resp.all_times(loop_global) = t_simulation;
-resp.pressure_iterations(loop_global) = 0;
 resp.sat_iterations(loop_global) = 0;
-resp.all_dt(loop_global) = 0
+resp.all_dt(loop_global) = 0;
+resp.all_vpi(loop_global) = 0;
+resp.cumulative_oil_prod(loop_global) = 0;
+resp.all_wor_ratio(loop_global) = 0;
+resp.all_qo_flux(loop_global) = 0;
+
 
 while continue_global
     
 %     [obj.x0_press, pressure_it] = define_pressure_iteration();
-    [obj.x0_press, pressure_it] = define_pressure_iteration_2();
-    [obj.dt, obj.upwind] = calculate_cfl();
-    [obj.x0_sat, sat_it]  = define_sat_iteration();
+    [obj.x0_press, pressure_it] = define_pressure();
+    [obj.dt, obj.upwind, wor_ratio, vpi, qo_flux] = calculate_cfl();    
+    [obj.x0_sat, sat_it] = define_sat_iteration();
     
     loop_global = loop_global + 1;
     t_simulation = t_simulation + obj.dt;
@@ -101,12 +106,17 @@ while continue_global
     resp.all_pressures(loop_global-1,:) = obj.x0_press;
     resp.all_saturations(loop_global,:) = obj.x0_sat;
     resp.all_times(loop_global) = t_simulation;
-    resp.pressure_iterations(loop_global-1) = pressure_it;
     resp.sat_iterations(loop_global) = sat_it;
+    resp.all_vpi(loop_global) = resp.all_vpi(loop_global-1) + vpi;
+    resp.cumulative_oil_prod(loop_global) = resp.cumulative_oil_prod(loop_global-1) + qo_flux*obj.dt;
+    resp.all_wor_ratio(loop_global) = wor_ratio;
+    resp.all_qo_flux(loop_global) = qo_flux;
     
     if t_simulation > obj.t_max_simulation
         continue_global = 0;
     elseif loop_global > obj.global_max_it
+        continue_global = 0;
+    elseif resp.all_vpi(loop_global) > obj.max_vpi
         continue_global = 0;
     end
     
