@@ -111,11 +111,11 @@ while continue_global
     resp.all_wor_ratio(loop_global) = wor_ratio;
     resp.all_qo_flux(loop_global) = qo_flux;
     
-    if t_simulation > obj.t_max_simulation
-        continue_global = 0;
-    elseif loop_global > obj.global_max_it
-        continue_global = 0;
-    elseif resp.all_vpi(loop_global) > obj.max_vpi
+%     if t_simulation > obj.t_max_simulation
+%         continue_global = 0;
+%     elseif loop_global > obj.global_max_it
+%         continue_global = 0;
+    if resp.all_vpi(loop_global) > obj.max_vpi
         continue_global = 0;
     end
     
@@ -130,7 +130,9 @@ while continue_global
     disp('DVPI');
     disp(vpi);
     
-    save('dados/resp_p2.mat', '-struct', 'resp');
+    if mod(loop_global, 101) == 0
+        save('dados/resp_p2.mat', '-struct', 'resp');
+    end
     
 end
 
