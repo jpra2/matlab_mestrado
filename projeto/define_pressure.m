@@ -1,4 +1,4 @@
-function [pressure, loop_p] = define_pressure()
+function pressure = define_pressure()
 global obj;
 global presc;
 
@@ -6,7 +6,6 @@ n_volumes = length(obj.volumes);
 saturation = obj.x0_sat;
 upwind_internal_faces = obj.adjacencies(obj.upwind);
 transmissibility = zeros(n_volumes);
-loop_p = 0;
 source = zeros(n_volumes, 1);
 
 for face = 1:length(obj.internal_faces)

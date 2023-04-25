@@ -93,8 +93,8 @@ resp.all_qo_flux(loop_global) = 0;
 while continue_global
     
 %     [obj.x0_press, pressure_it] = define_pressure_iteration();
-    [obj.x0_press, pressure_it] = define_pressure();
-    [obj.dt, obj.upwind, wor_ratio, vpi, qo_flux] = calculate_cfl();    
+    obj.x0_press = define_pressure();
+    [obj.dt, obj.upwind, wor_ratio, vpi, qo_flux] = update_params();
     [obj.x0_sat, sat_it] = define_sat_iteration();
     
     loop_global = loop_global + 1;

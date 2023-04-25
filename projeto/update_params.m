@@ -1,4 +1,4 @@
-function [dt, upwind, wor_ratio, vpi, qo_flux] = calculate_cfl()
+function [dt, upwind, wor_ratio, vpi, qo_flux] = update_params()
 global obj;
 
 %% define direcao upwind
