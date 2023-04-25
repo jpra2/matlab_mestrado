@@ -81,6 +81,8 @@ continue_global = true(1,1);
 t_simulation = 0;
 loop_global = 1;
 
+resp.perm = obj.volumes_perm;
+
 resp.all_pressures(loop_global,:) = obj.x0_press;
 resp.all_saturations(loop_global,:) = obj.x0_sat;
 resp.all_times(loop_global) = t_simulation;
