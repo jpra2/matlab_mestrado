@@ -8,6 +8,7 @@ adj_matrix_T = obj.adj_matrix';
 upwind_internal_faces = obj.adjacencies(obj.upwind);
 sat0 = obj.x0_sat;
 pressure = obj.x0_press;
+all_dists = sum(obj.h_dist');
 
 for i = 1:n_volumes
     
@@ -32,9 +33,7 @@ for i = 1:n_volumes
         mob_w = krw./obj.mi_w;
         mob_o = kro./obj.mi_o;
         mob_t = mob_w + mob_o;
-        c1 = obj.volumes_centroids(obj.adjacencies(face, 1));
-        c2 = obj.volumes_centroids(obj.adjacencies(face, 2));
-        dist = norm(c2 - c1);
+        dist = all_dists(face);
         k_harm = obj.k_harm(face);
         grad_p = (pressure(vol2) - pressure(i))./dist;
         

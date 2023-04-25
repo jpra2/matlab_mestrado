@@ -3,9 +3,9 @@ function [krw, kro] = define_kr_corey(S, Swr, Swor, nw, no, k0w, k0o)
 % krw = permeabilidade relativa da agua
 % kro = permeabilidade relativa do óleo
 
-if S > 1 | S < 0
-    error('Saturacao fora do intervalo');
-elseif S > Swor
+% if S > 1 | S < 0
+%     error('Saturacao fora do intervalo');
+if S > Swor
     krw = k0w;
     kro = 0;
 elseif S < Swr

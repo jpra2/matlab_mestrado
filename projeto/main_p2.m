@@ -3,7 +3,7 @@ clc;
 
 %% definir os volumes
 global obj;
-variables_path = 'dados/variables_p1.mat';
+variables_path = 'dados/variables_p2.mat';
 obj = load(variables_path);
 obj.internal_areas = obj.internal_areas';
 obj.porosity = obj.porosity';
@@ -68,6 +68,7 @@ presc.pressure_defined_values = obj.pressure_defined_values;
 global presc_sat;
 presc_sat.volumes_saturation_defined = obj.volumes_saturation_defined;
 presc_sat.saturation_defined_values = obj.saturation_defined_values;
+presc_sat.saturation_defined_values = [obj.Swor];
 obj.x0_sat(presc_sat.volumes_saturation_defined) = presc_sat.saturation_defined_values;
 
 
@@ -129,6 +130,8 @@ while continue_global
     disp('DVPI');
     disp(vpi);
     
+    save('dados/resp_p2.mat', '-struct', 'resp');
+    
 end
 
-save('dados/resp_p1.mat', '-struct', 'resp');
+save('dados/resp_p2.mat', '-struct', 'resp');

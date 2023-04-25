@@ -12,7 +12,8 @@ local_sat_tol = 100;
 x_sat = myAD(obj.x0_sat);
 while continue_sat
     residuo = myAD(zeros(n, 1));
-    result = define_residuo_sat(x_sat, residuo, presc_sat);
+%     result = define_residuo_sat(x_sat, residuo, presc_sat);
+    result = define_residuo_sat_2(x_sat, residuo, presc_sat);
     J = getderivs(result);
     resp = -getvalue(result);
     ds = J\resp;
