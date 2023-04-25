@@ -3,7 +3,7 @@ clc;
 
 %% definir os volumes
 global obj;
-variables_path = 'dados/variables_p2.mat';
+variables_path = 'dados/variables_p1.mat';
 obj = load(variables_path);
 obj.internal_areas = obj.internal_areas';
 obj.porosity = obj.porosity';
@@ -13,7 +13,6 @@ obj.vol_volumes = obj.vol_volumes';
 %% definir viscosidade da agua e do oleo
 obj.mi_w = 1.0; % agua
 obj.mi_o = 1.5; % oleo
-
 
 %% definir no e nw
 obj.no = 2;
@@ -27,14 +26,13 @@ obj.k0w = 1;
 obj.Swr = 0.2;
 obj.Swor = 0.8;
 
-%% definir as faces internas e as adjacencias
+%% definir a matriz de adjacencias
 obj.adj_matrix = mount_adj_matrix(length(obj.internal_faces), length(obj.volumes), obj.adjacencies);
 
 %% define k_harm
 obj.k_harm = define_k_harm(obj.volumes_perm, obj.internal_faces, obj.adjacencies, obj.unitary_vector_internal, obj.h_dist);
 
-%% definir as variaveis do problema: pressao e saturacao estao no mesmo vetor
-% ou seja: com  n volumes tem se vetor x 1:n pressao e n:2n saturacao
+%% definir as variaveis do problema: pressao e saturacao
 
 n = length(obj.volumes);
 obj.x0_press = zeros(n, 1);
@@ -44,14 +42,12 @@ obj.x0_sat(1:end) = obj.Swr;
 %% definir passo de tempo
 obj.dt = 0.5;
 
-%% definir tolerancia na pressao e saturacao
-obj.p_tol = 1e-13;
+%% definir tolerancia na saturacao
 obj.sat_tol = 1e-4;
-
 
 %% definir maximo de iteracoes
 
-obj.max_it_pressure = 10000;
+% obj.max_it_pressure = 10000;
 obj.max_it_sat = 10000;
 obj.global_max_it = 20000;
 obj.max_vpi = 0.75;
@@ -60,15 +56,15 @@ obj.max_vpi = 0.75;
 obj.t_max_simulation = 200000;
 
 %% definir cfl
-obj.cfl = 2;
+obj.cfl = 1;
 
-%% definir prescricao de pressao
+%% definir prescricao de pressao: ja vem do pre-processamento
 global presc;
 presc.volumes_pressure_defined = obj.volumes_pressure_defined;
 presc.pressure_defined_values = obj.pressure_defined_values;
 
 
-%% definir prescricao de saturacao
+%% definir prescricao de saturacao: ja vem do pre-processamento
 global presc_sat;
 presc_sat.volumes_saturation_defined = obj.volumes_saturation_defined;
 presc_sat.saturation_defined_values = obj.saturation_defined_values;
