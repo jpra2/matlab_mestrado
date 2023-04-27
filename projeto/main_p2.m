@@ -55,7 +55,7 @@ obj.max_wor_ratio = 3;
 % obj.t_max_simulation = 200000;
 
 %% definir cfl
-obj.cfl = 4;
+obj.cfl = 1;
 
 %% definir tolerancia local para a variacao de saturacao
 obj.delta_for_local_sat_tolerance = 100;
