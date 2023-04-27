@@ -99,6 +99,7 @@ while continue_global
     obj.x0_press = define_pressure();
     [obj.dt, obj.upwind] = update_params();
     [obj.x0_sat, sat_it] = define_sat_iteration();
+    mean_sat = (sat_ant + obj.x0_sat)./2;
     [wor_ratio, vpi, qo_flux] = update_vpi(sat_ant);
     
     loop_global = loop_global + 1;
