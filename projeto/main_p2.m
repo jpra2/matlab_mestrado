@@ -47,16 +47,19 @@ obj.sat_tol = 1e-4;
 
 %% definir maximo de iteracoes
 
-% obj.max_it_pressure = 10000;
-obj.max_it_sat = 10000;
-obj.global_max_it = 20000;
+obj.max_it_sat = 20000;
 obj.max_vpi = 0.75;
+obj.max_wor_ratio = 3;
 
 %% definir tempo maximo de simulacao
-obj.t_max_simulation = 200000;
+% obj.t_max_simulation = 200000;
 
 %% definir cfl
-obj.cfl = 1;
+obj.cfl = 4;
+
+%% definir tolerancia local para a variacao de saturacao
+obj.delta_for_local_sat_tolerance = 100;
+obj.max_it_for_local_loop_sat = 20;
 
 %% definir prescricao de pressao: ja vem do pre-processamento
 global presc;
@@ -90,13 +93,13 @@ resp.cumulative_oil_prod(loop_global) = 0;
 resp.all_wor_ratio(loop_global) = 0;
 resp.all_qo_flux(loop_global) = 0;
 
-
 while continue_global
     
-%     [obj.x0_press, pressure_it] = define_pressure_iteration();
+    sat_ant = obj.x0_sat;
     obj.x0_press = define_pressure();
-    [obj.dt, obj.upwind, wor_ratio, vpi, qo_flux] = update_params();
+    [obj.dt, obj.upwind] = update_params();
     [obj.x0_sat, sat_it] = define_sat_iteration();
+    [wor_ratio, vpi, qo_flux] = update_vpi(sat_ant);
     
     loop_global = loop_global + 1;
     t_simulation = t_simulation + obj.dt;
@@ -117,6 +120,8 @@ while continue_global
 %         continue_global = 0;
     if resp.all_vpi(loop_global) > obj.max_vpi
         continue_global = 0;
+    elseif wor_ratio > obj.max_wor_ratio
+        continue_global = 0;
     end
     
     disp('LOOP');
@@ -130,7 +135,7 @@ while continue_global
     disp('DVPI');
     disp(vpi);
     
-    if mod(loop_global, 101) == 0
+    if mod(loop_global, 41) == 0
         save('dados/resp_p2.mat', '-struct', 'resp');
     end
     
