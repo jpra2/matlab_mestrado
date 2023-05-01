@@ -1,8 +1,8 @@
 clear all;
 clc;
 
-path2 = 'dados/resp_p2.mat';
-path3 = 'dados/resp_p3.mat';
+path2 = 'dados/resp_p4.mat';
+path3 = 'dados/resp_p5.mat';
 
 resp2 = load(path2);
 resp3 = load(path3);

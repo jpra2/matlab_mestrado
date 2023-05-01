@@ -36,5 +36,6 @@ for i = 1:n_presc
 end
 
 pressure = transmissibility\source;
+pressure(presc.volumes_pressure_defined) = presc.pressure_defined_values;
 
 end

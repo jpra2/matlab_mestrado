@@ -43,7 +43,7 @@ obj.x0_sat(1:end) = obj.Swr;
 obj.dt = 0.5;
 
 %% definir tolerancia na saturacao
-obj.sat_tol = 1e-4;
+obj.sat_tol = 1e-5;
 
 %% definir maximo de iteracoes
 
@@ -55,7 +55,7 @@ obj.max_wor_ratio = 3;
 % obj.t_max_simulation = 200000;
 
 %% definir cfl
-obj.cfl = 4;
+obj.cfl = 1;
 
 %% definir tolerancia local para a variacao de saturacao
 obj.delta_for_local_sat_tolerance = 100;
@@ -71,7 +71,7 @@ presc.pressure_defined_values = obj.pressure_defined_values;
 global presc_sat;
 presc_sat.volumes_saturation_defined = obj.volumes_saturation_defined;
 presc_sat.saturation_defined_values = obj.saturation_defined_values;
-presc_sat.saturation_defined_values = [obj.Swor];
+presc_sat.saturation_defined_values(:) = obj.Swor;
 obj.x0_sat(presc_sat.volumes_saturation_defined) = presc_sat.saturation_defined_values;
 
 
@@ -80,46 +80,51 @@ obj.x0_sat(presc_sat.volumes_saturation_defined) = presc_sat.saturation_defined_
 continue_global = true(1,1);
 t_simulation = 0;
 loop_global = 1;
+n_volumes = length(obj.volumes);
 
-resp.perm = obj.volumes_perm;
+global gresp;
+gresp.perm = obj.volumes_perm;
 
-resp.all_pressures(loop_global,:) = obj.x0_press;
-resp.all_saturations(loop_global,:) = obj.x0_sat;
-resp.all_times(loop_global) = t_simulation;
-resp.sat_iterations(loop_global) = 0;
-resp.all_dt(loop_global) = 0;
-resp.all_vpi(loop_global) = 0;
-resp.cumulative_oil_prod(loop_global) = 0;
-resp.all_wor_ratio(loop_global) = 0;
-resp.all_qo_flux(loop_global) = 0;
+gresp.all_pressures(loop_global,:) = obj.x0_press;
+gresp.all_saturations(loop_global,:) = obj.x0_sat;
+gresp.all_times(loop_global) = t_simulation;
+gresp.sat_iterations(loop_global) = 0;
+gresp.all_dt(loop_global) = 0;
+gresp.all_vpi(loop_global) = 0;
+gresp.cumulative_oil_prod(loop_global) = 0;
+gresp.all_wor_ratio(loop_global) = 0;
+gresp.all_qo_flux(loop_global) = 0;
+gresp.qt_volumes(loop_global,:) = zeros(n_volumes, 1);
+gresp.qw_volumes(loop_global,:) = zeros(n_volumes, 1);
 
 while continue_global
     
     sat_ant = obj.x0_sat;
-    obj.x0_press = define_pressure();
+    obj.x0_press = define_pressure();    
     [obj.dt, obj.upwind] = update_params();
     [obj.x0_sat, sat_it] = define_sat_iteration();
     mean_sat = (sat_ant + obj.x0_sat)./2;
-    [wor_ratio, vpi, qo_flux] = update_vpi(sat_ant);
+    [wor_ratio, vpi, qo_flux, qw_volumes] = update_vpi(sat_ant);
     
     loop_global = loop_global + 1;
     t_simulation = t_simulation + obj.dt;
     
-    resp.all_dt(loop_global) = obj.dt;
-    resp.all_pressures(loop_global-1,:) = obj.x0_press;
-    resp.all_saturations(loop_global,:) = obj.x0_sat;
-    resp.all_times(loop_global) = t_simulation;
-    resp.sat_iterations(loop_global) = sat_it;
-    resp.all_vpi(loop_global) = resp.all_vpi(loop_global-1) + vpi;
-    resp.cumulative_oil_prod(loop_global) = resp.cumulative_oil_prod(loop_global-1) + qo_flux*obj.dt;
-    resp.all_wor_ratio(loop_global) = wor_ratio;
-    resp.all_qo_flux(loop_global) = qo_flux;
+    gresp.all_dt(loop_global) = obj.dt;
+    gresp.all_pressures(loop_global-1,:) = obj.x0_press;
+    gresp.all_saturations(loop_global,:) = obj.x0_sat;
+    gresp.all_times(loop_global) = t_simulation;
+    gresp.sat_iterations(loop_global) = sat_it;
+    gresp.all_vpi(loop_global) = gresp.all_vpi(loop_global-1) + vpi;
+    gresp.cumulative_oil_prod(loop_global) = gresp.cumulative_oil_prod(loop_global-1) + qo_flux*obj.dt;
+    gresp.all_wor_ratio(loop_global) = wor_ratio;
+    gresp.all_qo_flux(loop_global) = qo_flux;
+    gresp.qw_volumes(loop_global,:) = qw_volumes;
     
 %     if t_simulation > obj.t_max_simulation
 %         continue_global = 0;
 %     elseif loop_global > obj.global_max_it
 %         continue_global = 0;
-    if resp.all_vpi(loop_global) > obj.max_vpi
+    if gresp.all_vpi(loop_global) > obj.max_vpi
         continue_global = 0;
     elseif wor_ratio > obj.max_wor_ratio
         continue_global = 0;
@@ -128,7 +133,7 @@ while continue_global
     disp('LOOP');
     disp(loop_global);
     disp('VPI');
-    disp(resp.all_vpi(loop_global));
+    disp(gresp.all_vpi(loop_global));
     disp('T_SIMULATION');
     disp(t_simulation);
     disp('DT');
@@ -136,10 +141,10 @@ while continue_global
     disp('DVPI');
     disp(vpi);
     
-    if mod(loop_global, 41) == 0
-        save('dados/resp_p4.mat', '-struct', 'resp');
+    if mod(loop_global, 11) == 0
+        save('dados/resp_p4.mat', '-struct', 'gresp');
     end
     
 end
 
-save('dados/resp_p4.mat', '-struct', 'resp');
+save('dados/resp_p4.mat', '-struct', 'gresp');

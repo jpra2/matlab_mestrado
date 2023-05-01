@@ -1,4 +1,9 @@
 function [k_harm] = define_k_harm(volumes_perm, internal_faces, adjacencies, unitary_vector_internal, h_dist)
+% define o k harmonico nas faces internas
+%  volumes_perm: permeabilidade dos volumes
+%  internal_faces: faces internas
+%  unitary_vector_internal: vetor unitario das faces internas
+%  h_dist: distancia entre os volumes adjacentes das faces internas
 
 ni = length(internal_faces);
 k_harm = zeros(ni, 1);

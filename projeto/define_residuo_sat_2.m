@@ -36,7 +36,13 @@ for face = obj.internal_faces'
     qt_volumes(volumes_adj(2)) = qt_volumes(volumes_adj(2)) - qt(face);
 end
 
-residuo(:) = residuo -fw_volumes.*qt_volumes + obj.vol_volumes.*obj.porosity.*(x - sat0)./obj.dt;
+residuo(:) = residuo + obj.vol_volumes.*obj.porosity.*(x - sat0)./obj.dt;
+
+for vol = obj.producers
+    residuo(vol) = residuo(vol) - fw_volumes(vol).*qt_volumes(vol);
+end
+
+% residuo(:) = residuo -fw_volumes.*qt_volumes + obj.vol_volumes.*obj.porosity.*(x - sat0)./obj.dt;
 
 for i = presc_sat.volumes_saturation_defined
     if length(i) > 1
