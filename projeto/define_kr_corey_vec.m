@@ -1,11 +1,19 @@
 function [krw, kro] = define_kr_corey_vec(S, Swr, Swor, nw, no, k0w, k0o)
-% S = saturacao de agua
-% krw = permeabilidade relativa da agua
-% kro = permeabilidade relativa do óleo
+% retorna as permeabilidades relativas de oleo e agua de acordo com Brooks
+% e Corey.
 
-test1 = S > 1;
-test2 = S < 0;
-if sum(test1) > 0 | sum(test2) > 0
+% S: saturacao de agua
+% Swr: Saturacao residual de agua
+% Swor: 1-(saturacao residual de oleo)
+% nw: expoente da agua
+% no: expoente do oleo
+% k0w: permeabilidade relativa maxima de agua
+% k0o: permeabilidade relativa maxima de oleo
+
+% krw: permeabilidade relativa da agua
+% kro: permeabilidade relativa do oleo
+
+if test_sat_limits(S)
     error('Saturacao fora do intervalo')
 end
 

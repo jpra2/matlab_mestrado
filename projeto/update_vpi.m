@@ -1,4 +1,8 @@
 function [wor_ratio, vpi, qo_flux, qw_volumes_resp] = update_vpi(sat_ant)
+% retorna a razao agua oleo (wor_ratio), o vpi, o fluxo de oleo de producao
+% e o fluxo de agua em todos os volumes (qw_volumes_resp) de acordo o a
+% saturacao (sat_ant)
+
 global obj;
 
 p2 = obj.x0_press(obj.adjacencies(:, 2));
@@ -15,7 +19,7 @@ vo = (mobo./mobt).*vt;
 
 
 
-%% define a razao agua oleo de producao
+%% define a razao agua oleo de producao e o fluxo de agua nos volumes
 n_volumes = length(obj.volumes);
 qt_volumes = zeros(n_volumes, 1);
 qw_volumes_resp = zeros(n_volumes, 1);

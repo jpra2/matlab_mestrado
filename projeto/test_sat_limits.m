@@ -1,4 +1,7 @@
 function resp = test_sat_limits(S)
+% funcao para testar os limites de saturacao (fins de debug). Se os limites
+% forem ultrapassados a funcao retorna true.
+
 global obj;
 
 resp = false(1,1);

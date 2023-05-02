@@ -1,4 +1,7 @@
 function [dt, upwind] = update_params()
+% atualiza a direcao upwind e o passo de tempo conforme o cfl fornecido no
+% script main
+
 global obj;
 
 %% define direcao upwind

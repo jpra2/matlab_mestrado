@@ -1,5 +1,6 @@
 function [saturation, loop_sat] = define_sat_iteration()
 % retorna a saturacao e a quantidade de iteracoes
+% calcula a saturacao utilizando o metodo de Newton Raphson
 
 global obj;
 global presc_sat;
@@ -19,14 +20,13 @@ dt_obj = obj.dt;
 
 while continue_sat
     residuo = myAD(zeros(n, 1));
-%     result = define_residuo_sat(x_sat, residuo, presc_sat);
     result = define_residuo_sat_2(x_sat, residuo, presc_sat);
     J = getderivs(result);
     resp = -getvalue(result);
     ds = J\resp;
     x_sat = x_sat + ds;
-%     local_sat_tol = norm(ds);
-    local_sat_tol = max(abs(ds));
+    local_sat_tol = norm(ds);
+%     local_sat_tol = max(abs(ds));
     disp(local_sat_tol);
     
     if loop_sat > obj.max_it_sat

@@ -1,4 +1,6 @@
 function pressure = define_pressure()
+% calcula a pressao implicitamente
+
 global obj;
 global presc;
 

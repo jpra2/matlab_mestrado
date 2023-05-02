@@ -1,5 +1,11 @@
+%% pos processamento dos dados
 clear all;
 clc;
+
+% resp = load('dados/resp.mat') % problema 1
+
+% path2 = 'dados/resp_p2.mat';
+% path3 = 'dados/resp_p3.mat';
 
 path2 = 'dados/resp_p4.mat';
 path3 = 'dados/resp_p5.mat';
@@ -7,7 +13,7 @@ path3 = 'dados/resp_p5.mat';
 resp2 = load(path2);
 resp3 = load(path3);
 
-
+%% problema 1
 % %% cumulative oil
 % figure;
 % plot(resp.all_vpi, -resp.cumulative_oil_prod);

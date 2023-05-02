@@ -1,5 +1,8 @@
 function residuo = define_residuo_sat_2(x ,residuo, presc_sat)
 % define o residuo da saturacao
+% x = saturacao
+% residuo = vetor do residuo
+% presc_sat = prescricao da saturacao
 
 global obj;
 
