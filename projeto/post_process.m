@@ -13,8 +13,9 @@ path3 = 'dados/resp_p5.mat';
 resp2 = load(path2);
 resp3 = load(path3);
 
-%% problema 1
+% % problema 1
 % %% cumulative oil
+% resp = load('dados/resp_p1.mat')
 % figure;
 % plot(resp.all_vpi, -resp.cumulative_oil_prod);
 % title('Producao acumulada de óleo x VPI')
