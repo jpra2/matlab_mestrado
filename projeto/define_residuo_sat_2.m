@@ -48,9 +48,6 @@ end
 % residuo(:) = residuo -fw_volumes.*qt_volumes + obj.vol_volumes.*obj.porosity.*(x - sat0)./obj.dt;
 
 for i = presc_sat.volumes_saturation_defined
-    if length(i) > 1
-        error('Transpor o iterador');
-    end
     local_id = presc_sat.volumes_saturation_defined == i;
     residuo(i) = x(i) - presc_sat.saturation_defined_values(local_id);
 end

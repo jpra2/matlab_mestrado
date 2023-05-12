@@ -1,5 +1,5 @@
 value;variable_name;description
-dados/variables_p3.mat;variable_path;caminho das variaveis iniciais advindas dp pre-processamento em python
+dados/variables_p1.mat;variable_path;caminho das variaveis iniciais advindas dp pre-processamento em python
 1;mi_w;viscosidade da agua
 1;mi_o;viscosidade do oleo
 2;nw;expoente da agua na equacao de brooks e corey
