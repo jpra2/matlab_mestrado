@@ -36,6 +36,7 @@ obj.max_wor_ratio = val.max_wor_ratio.value;
 obj.cfl = val.cfl.value;
 obj.delta_for_local_sat_tolerance = val.delta_for_local_sat_tolerance.value;
 obj.max_it_for_local_loop_sat = val.max_it_for_local_loop_sat.value;
+obj.loops_for_save = val.loops_for_save.value;
 
 n = length(obj.volumes);
 obj.n = n;

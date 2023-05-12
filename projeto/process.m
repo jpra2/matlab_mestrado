@@ -2,6 +2,7 @@ function process()
 % simulacao propriamente dita
 
 global obj presc prescsat;
+
 global gresp; % variavel onde serao armazenados os dados da simulacao
 
 continue_global = true(1,1);
@@ -19,9 +20,6 @@ gresp.all_dt(loop_global) = 0; % passos de tempo
 gresp.all_vpi(loop_global) = 0; % vpi
 gresp.cumulative_oil_prod(loop_global) = 0; % producao acumulada de oleo
 gresp.all_wor_ratio(loop_global) = 0; % razao agua oleo de producao
-gresp.all_qo_flux(loop_global) = 0; % fluxo de oleo nos volumes da malha
-gresp.qt_volumes(loop_global,:) = zeros(n_volumes, 1); % fluxo total nos volumes da malha
-gresp.qw_volumes(loop_global,:) = zeros(n_volumes, 1); % fluxo de agua nos volumes da malha
 
 while continue_global
     
@@ -43,8 +41,6 @@ while continue_global
     gresp.all_vpi(loop_global) = gresp.all_vpi(loop_global-1) + vpi;
     gresp.cumulative_oil_prod(loop_global) = gresp.cumulative_oil_prod(loop_global-1) + qo_flux*obj.dt;
     gresp.all_wor_ratio(loop_global) = wor_ratio;
-    gresp.all_qo_flux(loop_global) = qo_flux;
-    gresp.qw_volumes(loop_global,:) = qw_volumes;
     
     if gresp.all_vpi(loop_global) > obj.max_vpi
         continue_global = 0;
@@ -65,7 +61,7 @@ while continue_global
     disp('DVPI');
     disp(vpi);
     
-    if mod(loop_global, 11) == 0
+    if mod(loop_global, obj.loops_for_save) == 0
         save('dados/resp.mat', '-struct', 'gresp');
     end
     

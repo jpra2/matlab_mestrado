@@ -62,5 +62,9 @@
     "max_it_for_local_loop_sat":{
         "value": 20,
         "comment": "valor maximo de iteracoes no calculo implicito da saturacao para atingir a convergencia. caso a convergencia nao seja atingida nessa quantidade de iteracoes o loop eh reiniciado com o passo de tempo reduzido pela metade."
+    },
+    "loops_for_save":{
+        "value": 501,
+        "comment": "define a cada quantos loops o arquivo com os dados da simulacao sera salvo"
     }
 }
