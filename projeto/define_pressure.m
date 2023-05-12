@@ -4,7 +4,7 @@ function pressure = define_pressure()
 global obj;
 global presc;
 
-n_volumes = length(obj.volumes);
+n_volumes = obj.n;
 saturation = obj.x0_sat;
 upwind_internal_faces = obj.adjacencies(obj.upwind);
 transmissibility = zeros(n_volumes);
