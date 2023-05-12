@@ -7,7 +7,7 @@ clc;
 
 %presc: variavel onde esta armazenada a prescricao de pressao
 %presc_sat: variavel onde esta armazenada a prescricao de saturacao de agua
-global obj presc presc_sat;
+% global obj presc presc_sat;
 
 global gresp; % variavel onde serao armazenados os dados da simulacao
 

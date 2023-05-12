@@ -58,5 +58,4 @@ presc_sat.volumes_saturation_defined = obj.volumes_saturation_defined;
 presc_sat.saturation_defined_values = obj.saturation_defined_values;
 presc_sat.saturation_defined_values(:) = obj.Swor;
 obj.x0_sat(presc_sat.volumes_saturation_defined) = presc_sat.saturation_defined_values;
-
 end

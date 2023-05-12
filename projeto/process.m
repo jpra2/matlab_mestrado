@@ -1,7 +1,7 @@
 function process()
 % simulacao propriamente dita
 
-global obj presc prescsat;
+global obj;
 
 global gresp; % variavel onde serao armazenados os dados da simulacao
 
