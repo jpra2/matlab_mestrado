@@ -1,6 +1,6 @@
 function preprocess()
 global obj;
-load_simulation_info_from_json();
+load_simulation_info_from_dat();
 
 %% definir a matriz de adjacencias
 obj.adj_matrix = mount_adj_matrix(length(obj.internal_faces), length(obj.volumes), obj.adjacencies);
