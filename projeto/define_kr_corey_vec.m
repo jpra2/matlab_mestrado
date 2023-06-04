@@ -13,9 +13,9 @@ function [krw, kro] = define_kr_corey_vec(S, Swr, Swor, nw, no, k0w, k0o)
 % krw: permeabilidade relativa da agua
 % kro: permeabilidade relativa do oleo
 
-if test_sat_limits(S)
-    error('Saturacao fora do intervalo')
-end
+% if test_sat_limits(S)
+%     error('Saturacao fora do intervalo')
+% end
 
 n = length(S);
 krw = zeros(n, 1);

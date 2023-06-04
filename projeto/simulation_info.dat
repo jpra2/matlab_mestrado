@@ -1,18 +1,18 @@
 value;variable_name;description
-dados/variables_p3.mat;variable_path;caminho das variaveis iniciais advindas dp pre-processamento em python
+dados/variables_p3_sim.mat;variable_path;caminho das variaveis iniciais advindas dp pre-processamento em python
 1;mi_w;viscosidade da agua
 1;mi_o;viscosidade do oleo
 2;nw;expoente da agua na equacao de brooks e corey
 2;no;expoente do oleo na equacao de brooks e corey
 1;k0o;permeabilidade relativa maxima da fase oleo
 1;k0w;permeabilidade relativa maxima da fase agua
-0.2;Swr;saturacao irredutivel da fase agua
-0.8;Swor;Swor = 1 - (saturacao residual da fase oleo)
+0.0;Swr;saturacao irredutivel da fase agua
+1.0;Swor;Swor = 1 - (saturacao residual da fase oleo)
 0.00001;sat_tol;tolerancia para o delta de saturacao - criterio de convergencia no calculo implicito da saturacao
 10000;max_it_sat;quantidade maxima de iteracoes no calculo implicito da saturacao em cada passo de tempo - se as iteracoes atingirem esse valor, o codigo vai parar e informar que a saturacao nao convergiu nas iteracoes de Newton Raphson
 0.75;max_vpi;valor maximo do volume poroso injetado - criterio de parada da simulacao
 3;max_wor_ratio;valor maximo da razao agua oleo de producao - criterio de parada da simulacao
-4;cfl;valor utilizado para calcular o passo de tempo baseado na condicao de estabilidade de Courant-Friedrichs-Lewy (CFL)
+1;cfl;valor utilizado para calcular o passo de tempo baseado na condicao de estabilidade de Courant-Friedrichs-Lewy (CFL)
 100;delta_for_local_sat_tolerance;valor maximo da diferenca entre dois erros consecutivos no calculo implicito da saturacao. caso esse valor seja ultrapassado o loop eh reiniciado com o passo de tempo reduzido pela metade
 20;max_it_for_local_loop_sat;valor maximo de iteracoes no calculo implicito da saturacao para atingir a convergencia. caso a convergencia nao seja atingida nessa quantidade de iteracoes o loop eh reiniciado com o passo de tempo reduzido pela metade.
 501;loops_for_save;define a cada quantos loops o arquivo com os dados da simulacao sera salvo
