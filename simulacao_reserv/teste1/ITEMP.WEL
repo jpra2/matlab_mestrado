@@ -1,0 +1,275 @@
+
+
+    *********************************************************************
+    *                                                                   *
+    *                                                                   *
+    *                             IFLO:                                 *
+    *                     INTEGRATED FLOW MODEL                         *
+    *                       (VERSION 2005.06)                           *
+    *                                                                   *
+    *                                                                   *
+    *********************************************************************
+
+
+
+    **********************************************************************************
+    *                                                                                *
+    *         SINGLE WELL PRIMARY DEPLETION OF AN UNDERSATURATED RESERVOIR           *
+    *                                                                                *
+    **********************************************************************************
+
+
+
+
+      ----------------------------------------------------------------------------------------------------------------------
+      ********* WELL REPORT FOR ALL ACTIVE WELLS     ELAPSED TIME =    365.000  DAYS FROM BEGINNING OF SIMULATION **********
+
+                                               --------- RATE --------                         ------- CUMULATIVE --------
+      WELL   LOCATION   BHFP    BHFP    PID      OIL      GAS     WATER    GOR      WOR         OIL        GAS        WATER
+       ID     I  J  K   PSIA    PSIA            STB/D    MCF/D    STB/D  SCF/STB  STB/STB       MSTB       MMCF       MSTB
+                        CALC    SPEC
+
+      P-1     9  9  1   1723.     0.    5.10     300.0     241.       0.     802.    0.001       109.5       59.2        0.1
+      ----------------------------------------------------------------------------------------------------------------------
+            TOTALS                               300.0     241.       0.                         109.5       59.2        0.1
+
+
+
+      ----------------------------------------------------------------------------------------------------------------------
+      ********* WELL REPORT FOR ALL ACTIVE WELLS     ELAPSED TIME =    730.000  DAYS FROM BEGINNING OF SIMULATION **********
+
+                                               --------- RATE --------                         ------- CUMULATIVE --------
+      WELL   LOCATION   BHFP    BHFP    PID      OIL      GAS     WATER    GOR      WOR         OIL        GAS        WATER
+       ID     I  J  K   PSIA    PSIA            STB/D    MCF/D    STB/D  SCF/STB  STB/STB       MSTB       MMCF       MSTB
+                        CALC    SPEC
+
+      P-1     9  9  1   3213.     0.    5.10      73.9      33.       0.     446.    0.000       133.8       71.8        0.1
+      I-1     1  1  1   3615.  5000.    5.10       0.0       0.    -300.       0.    0.000         0.0        0.0     -109.5
+      ----------------------------------------------------------------------------------------------------------------------
+            TOTALS                                73.9      33.    -300.                         133.8       71.8     -109.4
+
+
+
+      ----------------------------------------------------------------------------------------------------------------------
+      ********* WELL REPORT FOR ALL ACTIVE WELLS     ELAPSED TIME =   1095.000  DAYS FROM BEGINNING OF SIMULATION **********
+
+                                               --------- RATE --------                         ------- CUMULATIVE --------
+      WELL   LOCATION   BHFP    BHFP    PID      OIL      GAS     WATER    GOR      WOR         OIL        GAS        WATER
+       ID     I  J  K   PSIA    PSIA            STB/D    MCF/D    STB/D  SCF/STB  STB/STB       MSTB       MMCF       MSTB
+                        CALC    SPEC
+
+      P-1     9  9  1   3943.     0.    5.10     149.7      67.       0.     447.    0.000       188.1       96.1        0.1
+      I-1     1  1  1   4412.  5000.    5.10       0.0       0.    -300.       0.    0.000         0.0        0.0     -219.0
+      ----------------------------------------------------------------------------------------------------------------------
+            TOTALS                               149.7      67.    -300.                         188.1       96.1     -218.9
+
+
+
+      ----------------------------------------------------------------------------------------------------------------------
+      ********* WELL REPORT FOR ALL ACTIVE WELLS     ELAPSED TIME =   1460.000  DAYS FROM BEGINNING OF SIMULATION **********
+
+                                               --------- RATE --------                         ------- CUMULATIVE --------
+      WELL   LOCATION   BHFP    BHFP    PID      OIL      GAS     WATER    GOR      WOR         OIL        GAS        WATER
+       ID     I  J  K   PSIA    PSIA            STB/D    MCF/D    STB/D  SCF/STB  STB/STB       MSTB       MMCF       MSTB
+                        CALC    SPEC
+
+      P-1     9  9  1   4833.     0.    5.10     152.0      68.       0.     447.    0.000       243.1      120.7        0.1
+      I-1     1  1  1   5308.  5000.    5.10       0.0       0.    -300.       0.    0.000         0.0        0.0     -328.5
+      ----------------------------------------------------------------------------------------------------------------------
+            TOTALS                               152.0      68.    -300.                         243.1      120.7     -328.4
+
+
+
+      ----------------------------------------------------------------------------------------------------------------------
+      ********* WELL REPORT FOR ALL ACTIVE WELLS     ELAPSED TIME =   1825.000  DAYS FROM BEGINNING OF SIMULATION **********
+
+                                               --------- RATE --------                         ------- CUMULATIVE --------
+      WELL   LOCATION   BHFP    BHFP    PID      OIL      GAS     WATER    GOR      WOR         OIL        GAS        WATER
+       ID     I  J  K   PSIA    PSIA            STB/D    MCF/D    STB/D  SCF/STB  STB/STB       MSTB       MMCF       MSTB
+                        CALC    SPEC
+
+      P-1     9  9  1   4832.     0.    5.10     228.0     102.       0.     447.    0.000       326.3      157.9        0.1
+      I-1     1  1  1   5376.  5000.    5.10       0.0       0.    -300.       0.    0.000         0.0        0.0     -438.0
+      ----------------------------------------------------------------------------------------------------------------------
+            TOTALS                               228.0     102.    -300.                         326.3      157.9     -437.9
+
+
+
+      ----------------------------------------------------------------------------------------------------------------------
+      ********* WELL REPORT FOR ALL ACTIVE WELLS     ELAPSED TIME =   2190.000  DAYS FROM BEGINNING OF SIMULATION **********
+
+                                               --------- RATE --------                         ------- CUMULATIVE --------
+      WELL   LOCATION   BHFP    BHFP    PID      OIL      GAS     WATER    GOR      WOR         OIL        GAS        WATER
+       ID     I  J  K   PSIA    PSIA            STB/D    MCF/D    STB/D  SCF/STB  STB/STB       MSTB       MMCF       MSTB
+                        CALC    SPEC
+
+      P-1     9  9  1   4887.     0.    5.10     228.1     102.       0.     447.    0.000       409.5      195.1        0.1
+      I-1     1  1  1   5437.  5000.    5.10       0.0       0.    -300.       0.    0.000         0.0        0.0     -547.5
+      ----------------------------------------------------------------------------------------------------------------------
+            TOTALS                               228.1     102.    -300.                         409.5      195.1     -547.4
+
+
+
+      ----------------------------------------------------------------------------------------------------------------------
+      ********* WELL REPORT FOR ALL ACTIVE WELLS     ELAPSED TIME =   2555.000  DAYS FROM BEGINNING OF SIMULATION **********
+
+                                               --------- RATE --------                         ------- CUMULATIVE --------
+      WELL   LOCATION   BHFP    BHFP    PID      OIL      GAS     WATER    GOR      WOR         OIL        GAS        WATER
+       ID     I  J  K   PSIA    PSIA            STB/D    MCF/D    STB/D  SCF/STB  STB/STB       MSTB       MMCF       MSTB
+                        CALC    SPEC
+
+      P-1     9  9  1   4941.     0.    5.10     228.3     102.       0.     448.    0.000       492.8      232.3        0.1
+      I-1     1  1  1   5496.  5000.    5.10       0.0       0.    -300.       0.    0.000         0.0        0.0     -657.0
+      ----------------------------------------------------------------------------------------------------------------------
+            TOTALS                               228.3     102.    -300.                         492.8      232.3     -656.9
+
+
+
+      ----------------------------------------------------------------------------------------------------------------------
+      ********* WELL REPORT FOR ALL ACTIVE WELLS     ELAPSED TIME =   2920.000  DAYS FROM BEGINNING OF SIMULATION **********
+
+                                               --------- RATE --------                         ------- CUMULATIVE --------
+      WELL   LOCATION   BHFP    BHFP    PID      OIL      GAS     WATER    GOR      WOR         OIL        GAS        WATER
+       ID     I  J  K   PSIA    PSIA            STB/D    MCF/D    STB/D  SCF/STB  STB/STB       MSTB       MMCF       MSTB
+                        CALC    SPEC
+
+      P-1     9  9  1   4994.     0.    5.10     228.5     102.       0.     448.    0.000       576.2      269.7        0.1
+      I-1     1  1  1   5556.  5000.    5.10       0.0       0.    -300.       0.    0.000         0.0        0.0     -766.5
+      ----------------------------------------------------------------------------------------------------------------------
+            TOTALS                               228.5     102.    -300.                         576.2      269.7     -766.4
+
+
+
+      ----------------------------------------------------------------------------------------------------------------------
+      ********* WELL REPORT FOR ALL ACTIVE WELLS     ELAPSED TIME =   3285.000  DAYS FROM BEGINNING OF SIMULATION **********
+
+                                               --------- RATE --------                         ------- CUMULATIVE --------
+      WELL   LOCATION   BHFP    BHFP    PID      OIL      GAS     WATER    GOR      WOR         OIL        GAS        WATER
+       ID     I  J  K   PSIA    PSIA            STB/D    MCF/D    STB/D  SCF/STB  STB/STB       MSTB       MMCF       MSTB
+                        CALC    SPEC
+
+      P-1     9  9  1   5048.     0.    5.10     228.6     102.       0.     448.    0.000       659.6      307.0        0.2
+      I-1     1  1  1   5622.  5000.    5.10       0.0       0.    -300.       0.    0.000         0.0        0.0     -876.0
+      ----------------------------------------------------------------------------------------------------------------------
+            TOTALS                               228.6     102.    -300.                         659.6      307.0     -875.8
+
+
+
+      ----------------------------------------------------------------------------------------------------------------------
+      ********* WELL REPORT FOR ALL ACTIVE WELLS     ELAPSED TIME =   3650.000  DAYS FROM BEGINNING OF SIMULATION **********
+
+                                               --------- RATE --------                         ------- CUMULATIVE --------
+      WELL   LOCATION   BHFP    BHFP    PID      OIL      GAS     WATER    GOR      WOR         OIL        GAS        WATER
+       ID     I  J  K   PSIA    PSIA            STB/D    MCF/D    STB/D  SCF/STB  STB/STB       MSTB       MMCF       MSTB
+                        CALC    SPEC
+
+      P-1     9  9  1   5097.     0.    5.10     228.5     102.       0.     448.    0.002       743.0      344.4        0.2
+      I-1     1  1  1   5689.  5000.    5.10       0.0       0.    -300.       0.    0.000         0.0        0.0     -985.5
+      ----------------------------------------------------------------------------------------------------------------------
+            TOTALS                               228.5     102.    -300.                         743.0      344.4     -985.3
+
+
+
+      ----------------------------------------------------------------------------------------------------------------------
+      ********* WELL REPORT FOR ALL ACTIVE WELLS     ELAPSED TIME =   4015.000  DAYS FROM BEGINNING OF SIMULATION **********
+
+                                               --------- RATE --------                         ------- CUMULATIVE --------
+      WELL   LOCATION   BHFP    BHFP    PID      OIL      GAS     WATER    GOR      WOR         OIL        GAS        WATER
+       ID     I  J  K   PSIA    PSIA            STB/D    MCF/D    STB/D  SCF/STB  STB/STB       MSTB       MMCF       MSTB
+                        CALC    SPEC
+
+      P-1     9  9  1   5125.     0.    5.10     225.4     101.       5.     448.    0.021       826.1      381.6        0.8
+      I-1     1  1  1   5765.  5000.    5.10       0.0       0.    -300.       0.    0.000         0.0        0.0    -1095.0
+      ----------------------------------------------------------------------------------------------------------------------
+            TOTALS                               225.4     101.    -295.                         826.1      381.6    -1094.2
+
+
+
+      ----------------------------------------------------------------------------------------------------------------------
+      ********* WELL REPORT FOR ALL ACTIVE WELLS     ELAPSED TIME =   4380.000  DAYS FROM BEGINNING OF SIMULATION **********
+
+                                               --------- RATE --------                         ------- CUMULATIVE --------
+      WELL   LOCATION   BHFP    BHFP    PID      OIL      GAS     WATER    GOR      WOR         OIL        GAS        WATER
+       ID     I  J  K   PSIA    PSIA            STB/D    MCF/D    STB/D  SCF/STB  STB/STB       MSTB       MMCF       MSTB
+                        CALC    SPEC
+
+      P-1     9  9  1   5051.     0.    5.10     175.0      78.      69.     448.    0.397       903.4      416.2        8.9
+      I-1     1  1  1   5843.  5000.    5.10       0.0       0.    -300.       0.    0.000         0.0        0.0    -1204.5
+      ----------------------------------------------------------------------------------------------------------------------
+            TOTALS                               175.0      78.    -231.                         903.4      416.2    -1195.6
+
+
+
+      ----------------------------------------------------------------------------------------------------------------------
+      ********* WELL REPORT FOR ALL ACTIVE WELLS     ELAPSED TIME =   4745.000  DAYS FROM BEGINNING OF SIMULATION **********
+
+                                               --------- RATE --------                         ------- CUMULATIVE --------
+      WELL   LOCATION   BHFP    BHFP    PID      OIL      GAS     WATER    GOR      WOR         OIL        GAS        WATER
+       ID     I  J  K   PSIA    PSIA            STB/D    MCF/D    STB/D  SCF/STB  STB/STB       MSTB       MMCF       MSTB
+                        CALC    SPEC
+
+      P-1     9  9  1   4445.     0.    5.10     110.5      50.     200.     448.    1.810       956.5      440.0       65.7
+      I-1     1  1  1   5363.  5000.    5.10       0.0       0.    -300.       0.    0.000         0.0        0.0    -1314.0
+      ----------------------------------------------------------------------------------------------------------------------
+            TOTALS                               110.5      50.    -100.                         956.5      440.0    -1248.3
+
+
+
+      ----------------------------------------------------------------------------------------------------------------------
+      ********* WELL REPORT FOR ALL ACTIVE WELLS     ELAPSED TIME =   5110.000  DAYS FROM BEGINNING OF SIMULATION **********
+
+                                               --------- RATE --------                         ------- CUMULATIVE --------
+      WELL   LOCATION   BHFP    BHFP    PID      OIL      GAS     WATER    GOR      WOR         OIL        GAS        WATER
+       ID     I  J  K   PSIA    PSIA            STB/D    MCF/D    STB/D  SCF/STB  STB/STB       MSTB       MMCF       MSTB
+                        CALC    SPEC
+
+      P-1     9  9  1   3876.     0.    5.10      80.1      36.     238.     449.    2.975       990.3      455.1      147.0
+      I-1     1  1  1   4789.  5000.    5.10       0.0       0.    -300.       0.    0.000         0.0        0.0    -1423.5
+      ----------------------------------------------------------------------------------------------------------------------
+            TOTALS                                80.1      36.     -62.                         990.3      455.1    -1276.5
+
+
+
+      ----------------------------------------------------------------------------------------------------------------------
+      ********* WELL REPORT FOR ALL ACTIVE WELLS     ELAPSED TIME =   5475.000  DAYS FROM BEGINNING OF SIMULATION **********
+
+                                               --------- RATE --------                         ------- CUMULATIVE --------
+      WELL   LOCATION   BHFP    BHFP    PID      OIL      GAS     WATER    GOR      WOR         OIL        GAS        WATER
+       ID     I  J  K   PSIA    PSIA            STB/D    MCF/D    STB/D  SCF/STB  STB/STB       MSTB       MMCF       MSTB
+                        CALC    SPEC
+
+      P-1     9  9  1   3329.     0.    5.10      65.9      30.     256.     451.    3.888      1016.9      467.1      237.4
+      I-1     1  1  1   4233.  5000.    5.10       0.0       0.    -300.       0.    0.000         0.0        0.0    -1533.0
+      ----------------------------------------------------------------------------------------------------------------------
+            TOTALS                                65.9      30.     -44.                        1016.9      467.1    -1295.6
+
+
+
+      ----------------------------------------------------------------------------------------------------------------------
+      ********* WELL REPORT FOR ALL ACTIVE WELLS     ELAPSED TIME =   5840.000  DAYS FROM BEGINNING OF SIMULATION **********
+
+                                               --------- RATE --------                         ------- CUMULATIVE --------
+      WELL   LOCATION   BHFP    BHFP    PID      OIL      GAS     WATER    GOR      WOR         OIL        GAS        WATER
+       ID     I  J  K   PSIA    PSIA            STB/D    MCF/D    STB/D  SCF/STB  STB/STB       MSTB       MMCF       MSTB
+                        CALC    SPEC
+
+      P-1     9  9  1   2793.     0.    5.10      57.3      26.     267.     452.    4.652      1039.3      477.2      332.9
+      I-1     1  1  1   3692.  5000.    5.10       0.0       0.    -300.       0.    0.000         0.0        0.0    -1642.5
+      ----------------------------------------------------------------------------------------------------------------------
+            TOTALS                                57.3      26.     -33.                        1039.3      477.2    -1309.6
+
+
+
+      ----------------------------------------------------------------------------------------------------------------------
+      ********* WELL REPORT FOR ALL ACTIVE WELLS     ELAPSED TIME =   6205.000  DAYS FROM BEGINNING OF SIMULATION **********
+
+                                               --------- RATE --------                         ------- CUMULATIVE --------
+      WELL   LOCATION   BHFP    BHFP    PID      OIL      GAS     WATER    GOR      WOR         OIL        GAS        WATER
+       ID     I  J  K   PSIA    PSIA            STB/D    MCF/D    STB/D  SCF/STB  STB/STB       MSTB       MMCF       MSTB
+                        CALC    SPEC
+
+      P-1     9  9  1   2218.     0.    5.10      47.0      21.     280.     442.    5.960      1058.9      486.1      431.9
+      I-1     1  1  1   3117.  5000.    5.10       0.0       0.    -300.       0.    0.000         0.0        0.0    -1752.0
+      ----------------------------------------------------------------------------------------------------------------------
+            TOTALS                                47.0      21.     -20.                        1058.9      486.1    -1320.1
+
