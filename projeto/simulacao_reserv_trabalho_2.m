@@ -5,7 +5,7 @@ clc;
 cdata.L = 200; % comprimento total
 cdata.v=5; % velocidade
 cdata.tmax = 20; % tempo total
-cdata.cfl = 1; % cfl 
+cdata.cfl = 1; % cfl (valor para a condicao de estabilidade)
 cdata.intervalos_impressao = [0, 5, 10, 15, 20, 30];
 
 % definicoes do usuario
@@ -18,7 +18,7 @@ cdata.h = cdata.L/cdata.n; % tamanho dos blocos
 cdata.sat0 = zeros(cdata.n, 1); % saturacao inicial
 cdata.sat0(1) = 1;
 cdata.indices = 1:cdata.n;
-cdata.dt = cdata.cfl*cdata.h/cdata.v;
+cdata.dt = cdata.cfl*cdata.h/cdata.v; % passo de tempo
 
 % simulacao
 t_simulation = 0;
