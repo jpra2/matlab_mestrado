@@ -9,19 +9,20 @@ file_name_tss = 'ITEMP.TSS'
 file_name_arr = 'ITEMP.ARR'
 
 name_column = '-'
-# name_column = 'base16'
+# name_column = 'base17'
 file_name_csv_to_save = name_column + '.csv'
 file_name_arr_to_save = name_column + '_arr.csv'
 
-arr_files = ['base12_arr.csv', 'base13_arr.csv', 'base14_arr.csv', 'base15_arr.csv', 'base16_arr.csv']
+arr_files = ['base12_arr.csv', 'base13_arr.csv', 'base14_arr.csv', 'base15_arr.csv', 'base16_arr.csv',
+            'base17_arr.csv']
 
 file_names = ['base.csv', 'base2.csv', 'base3.csv', 'base4.csv', 'base5.csv', 'base6.csv', 'base7.csv',
               'base8.csv', 'base3_c.csv', 'base3_c2.csv', 'base3_c3_col.csv', 'base10.csv', 'base11.csv',
-              'base12.csv', 'base13.csv', 'base14.csv', 'base15.csv', 'base16.csv']
+              'base12.csv', 'base13.csv', 'base14.csv', 'base15.csv', 'base16.csv', 'base17.csv']
 
 names_column = ['base', 'base2', 'base3', 'base4', 'base5', 'base6', 'base7', 'base8' 'base3_c',
                 'base3_c2', 'base3_c3_col', 'base10', 'base11', 'base12', 'base13', 'base14', 'base15',
-                'base16']
+                'base16', 'base17']
 
 description = {
     'base': 'caso sem alteracao',
@@ -41,7 +42,8 @@ description = {
     'base13': 'caso 12 com delta time max = 30 (normal = 15)',
     'base14': 'caso 12 com delta time max = 10',
     'base15': 'caso 12 com delta time max = 40',
-    'base16': 'caso 14 com modificacao nas datas das taxas de producao: em 2920 taxa de producao total de 350'
+    'base16': 'caso 14 com modificacao nas datas das taxas de producao: em 2920 taxa de producao total de 350',
+    'base17': 'caso 16 com modificacao da taxa total de producao em 2920 dias para 310 '
 }
 
 def load_from_tss_and_save(file_name, name_col, to_save_name):
