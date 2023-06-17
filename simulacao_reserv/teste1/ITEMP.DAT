@@ -1,6 +1,6 @@
          SINGLE WELL PRIMARY DEPLETION OF AN UNDERSATURATED RESERVOIR
 MODEL DATA
-9 9 1 2 1
+9 9 1 5 1
 GRID BLOCK LENGTHS
 0 0 -1 -1
 4*160. 80. 4*160.
@@ -115,7 +115,7 @@ EQUILIBRIUM PRESSURE INITIALIZATION/CONSTANT SATURATION INITIALIZATION
  KSW1 KSW2 KSW3 KSW4
     0    0    0    0
  NMAX  FACT1  FACT2  TMAX  WORMAX  GORMAX  PAMIN  PAMAX
- 1000   1.50   0.50   6205     6.0  500000   1500   6000
+ 1000   1.50   0.50   5110     6.0  500000   1500   6000
  KSOL  MITR  OMEGA    TOL  NCYCLE   DSMAX  DPMAX  ITMAX   RTOL  NERR
     3   100   1.20  0.001       0    0.05  100.0      5  0.001     1
  WEIGHT
@@ -132,77 +132,88 @@ DATA SET 1
 1 1 1 0 0
 0 0 0 0 0
 0 0 0 0 0
-5. 1. 10.
+5. 1. 15.
 WELL P-1 PRODUCING AT 300 BOPD
 1 0 0
 ---NEW WELLS---
 P-1
 1   1   0   0
-  9   9   1  5.1   0.0
+  5   5   1  5.1   0.0
   1     300.        0.        0.        0.       0.
-DATA SET 2 *** new well inj ***
-1  1  1  2
+*** DATA SET 2 - New injector water well ***
+1,   1,   1,   2
 730
-1 1 0 1 1 0
-1 1 1 0 0
-0 0 0 0 0
-0 0 0 0 0
-5. 1. 10.
-WELL P-1 PRODUCING AT 300 BOPD
-1 1 0
---New well inj
+1,   1,   0,    1,    1,    0
+1,   1,   1,    0,    0
+0,   0,   0,    0,    1
+0,   0,   0,    0,    0
+5.0,   1.0,   15.0
+WELL INFORMATION
+4    1    0
+New Wells Inj
 I-1
 2,   1,   0,   0
     1,   1,   1, 5.1  5000
-    2       0.     -300.        0.        0.        0.
---Mod well
+    2       0.     -80.        0.        0.        0.
+I-2
+3,   1,   0,   0
+    9,   1,   1, 5.1  5000
+    2       0.     -80.        0.        0.        0.
+I-3
+4,   1,   0,   0
+    9,   9,   1, 5.1  5000
+    2       0.     -80.        0.        0.        0.
+I-4
+5,   1,   0,   0
+    1,   9,   1, 5.1  5000
+    2       0.     -80.        0.        0.        0.
+CHANGE RATE OF OLD WELLS
 P-1
 1   1   0   0
-  9   9   1  5.1   0.0
+  5   5   1  5.1   0.0
   1     0.        0.        0.        100.       0.
-DATA SET 3 *** new well inj ***
-1  2  1  2
+*** DATA SET 3 - modify total flux prod ***
+1,   2,   1,   2
 1095  1460
-1 1 0 1 1 0
-1 1 1 0 0
-0 0 0 0 0
-0 0 0 0 0
-5. 1. 10.
-WELL P-1 PRODUCING AT 300 BOPD
-0 1 0
---Mod well
+1,   1,   0,    1,    1,    0
+1,   1,   1,    0,    0
+0,   0,   0,    0,    1
+0,   0,   0,    0,    0
+5.0,   1.0,   15.0
+WELL INFORMATION
+0    1    0
+CHANGE RATE OF OLD WELLS
 P-1
 1   1   0   0
-  9   9   1  5.1   0.0
+  5   5   1  5.1   0.0
   1     0.        0.        0.        200.       0.
-DATA SET 4 *** new well inj ***
-1  3  1  2
-1825 2190 2555
-1 1 0 1 1 0
-1 1 1 0 0
-0 0 0 0 0
-0 0 0 0 0
-5. 1. 10.
-WELL P-1 PRODUCING AT 300 BOPD
-0 1 0
---Mod well
+*** DATA SET 5 - modify total flux prod ***
+1,   4,   1,   2
+1825 2190 2555 2920
+1,   1,   0,    1,    1,    0
+1,   1,   1,    0,    0
+0,   0,   0,    0,    1
+0,   0,   0,    0,    0
+5.0,   1.0,   15.0
+WELL INFORMATION
+0    1    0
+CHANGE RATE OF OLD WELLS
 P-1
 1   1   0   0
-  9   9   1  5.1   0.0
+  5   5   1  5.1   0.0
   1     0.        0.        0.        300.       0.
-DATA SET 5 *** new well inj ***
-1  10  1  2
-2920 3285 3650 4015 4380 4745 5110 5475 5840 6205
-1 1 0 1 1 0
-1 1 1 0 0
-0 0 0 0 0
-0 0 0 0 0
-5. 1. 10.
-WELL P-1 PRODUCING AT 300 BOPD
-0 1 0
---Mod well
+*** DATA SET 6 - modify total flux prod ***
+1,   6,   1,   2
+3285 3650 4015 4380 4745 5110
+1,   1,   0,    1,    1,    0
+1,   1,   1,    0,    0
+0,   0,   0,    0,    1
+0,   0,   0,    0,    0
+5.0,   1.0,   15.0
+WELL INFORMATION
+0    1    0
+CHANGE RATE OF OLD WELLS
 P-1
 1   1   0   0
-  9   9   1  5.1   0.0
-  1     0.        0.        0.        310.       0.
-
+  5   5   1  5.1   0.0
+  1     0.        0.        0.        350.       0.
