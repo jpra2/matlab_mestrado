@@ -8,8 +8,8 @@ folder = 'dados'
 file_name_tss = 'ITEMP.TSS'
 file_name_arr = 'ITEMP.ARR'
 
-# name_column = '-'
-name_column = 'base22'
+name_column = '-'
+# name_column = 'base22'
 file_name_csv_to_save = name_column + '.csv'
 file_name_arr_to_save = name_column + '_arr.csv'
 
@@ -122,5 +122,5 @@ def load_arr_file_and_save(file_name, to_save_name, case_name):
 
 
 
-load_from_tss_and_save(file_name_tss, name_column, file_name_csv_to_save)
-load_arr_file_and_save(file_name_arr, file_name_arr_to_save, name_column)
+# load_from_tss_and_save(file_name_tss, name_column, file_name_csv_to_save)
+# load_arr_file_and_save(file_name_arr, file_name_arr_to_save, name_column)
