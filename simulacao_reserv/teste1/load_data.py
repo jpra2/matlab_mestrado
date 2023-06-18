@@ -120,7 +120,41 @@ def load_arr_file_and_save(file_name, to_save_name, case_name):
     df = df.astype({'day': int})
     save_df(df, to_save_name)
 
+def create_gif(case):
+    
+    
+    import contextlib
+    from PIL import Image
 
+    folder = 'data_cases'
+    folder = os.path.join(folder, case)
+
+    gif_path = os.path.join(folder, 'gifs')
+
+    # filepaths
+    fp_in = gif_path
+    fp_out = os.path.join(folder, 'movie_sw.gif')
+
+    # use exit stack to automatically close opened images
+    with contextlib.ExitStack() as stack:
+        all_dirs = os.listdir(fp_in)
+        all_dirs = [os.path.join(fp_in, i) for i in all_dirs]
+
+        # lazily load images
+        imgs = (stack.enter_context(Image.open(f))
+                for f in sorted(all_dirs))
+
+        # extract  first image from iterator
+        img = next(imgs)
+
+        # https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html#gif
+        img.save(fp=fp_out, format='GIF', append_images=imgs,
+                save_all=True, duration=200, loop=0)
 
 # load_from_tss_and_save(file_name_tss, name_column, file_name_csv_to_save)
 # load_arr_file_and_save(file_name_arr, file_name_arr_to_save, name_column)
+
+# cases = ['base3_c3_col', 'base12', 'base18', 'base20']
+cases = ['base22']
+for case in cases:
+    create_gif(case)
