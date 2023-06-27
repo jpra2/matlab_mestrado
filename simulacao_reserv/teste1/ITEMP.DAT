@@ -1,10 +1,10 @@
          SINGLE WELL PRIMARY DEPLETION OF AN UNDERSATURATED RESERVOIR
 MODEL DATA
-9 9 1 1 1
+27 27 1 2 1
 GRID BLOCK LENGTHS
 0 0 -1 -1
-4*160. 80. 4*160.
-4*160. 80. 4*160.
+13*50.37 50.37 13*50.37
+13*50.37 50.37 13*50.37
 30.
 30.
 GRID BLOCK LENGTH MODIFICATIONS
@@ -14,15 +14,33 @@ DEPTH TO TOP OF SAND
 8345.
 POROSITY AND PERMEABILITY DISTRIBUTIONS
 +1 -1 -1 -1
-9*.28
-9*.28
-9*.28
-9*.28
-9*.28
-9*.30
-9*.30
-9*.30
-9*.30
+27*0.28
+27*0.28
+27*0.28
+27*0.28
+27*0.28
+27*0.28
+27*0.28
+27*0.28
+27*0.28
+27*0.28
+27*0.28
+27*0.28
+27*0.28
+27*0.28
+27*0.28
+27*0.28
+27*0.28
+27*0.28
+27*0.3
+27*0.3
+27*0.3
+27*0.3
+27*0.3
+27*0.3
+27*0.3
+27*0.3
+27*0.3
 100.
 100.
 100.
@@ -115,7 +133,7 @@ EQUILIBRIUM PRESSURE INITIALIZATION/CONSTANT SATURATION INITIALIZATION
  KSW1 KSW2 KSW3 KSW4
     0    0    0    0
  NMAX  FACT1  FACT2  TMAX  WORMAX  GORMAX  PAMIN  PAMAX
- 1000   1.50   0.50   1460     5.0  500000   1500   6000
+ 1000   1.50   0.50   8760     5.0  500000   1500   6000
  KSOL  MITR  OMEGA    TOL  NCYCLE   DSMAX  DPMAX  ITMAX   RTOL  NERR
     3   100   1.20  0.001       0    0.05  100.0      5  0.001     1
  WEIGHT
@@ -126,8 +144,8 @@ COAL GAS DATA
 0
 RECURRENT DATA
 DATA SET 1
-1  4  1  2
-365  730  1095  1460
+1  1  1  2
+365
 1 1 0 1 1 0
 1 1 1 0 0
 0 0 0 0 0
@@ -138,5 +156,85 @@ WELL P-1 PRODUCING AT 300 BOPD
 ---NEW WELLS---
 P-1
 1   1   0   0
-  9   9   1  5.1   0.0
-  1     300.        0.        0.        0.       0.
+  27   27   1  5.1   0.0
+  1     200.        0.        0.        0.       0.
+DATA SET 2 *** new well inj ***
+1  1  1  2
+730
+1 1 0 1 1 0
+1 1 1 0 0
+0 0 0 0 0
+0 0 0 0 0
+5. 1. 15.
+WELL P-1 PRODUCING AT 300 BOPD
+1 1 0
+--New well inj
+I-1
+2,   1,   0,   0
+    1,   1,   1, 5.1  5000
+    2       0.     -200.        0.        0.        0.
+--Mod well
+P-1
+1   1   0   0
+  27   27   1  5.1   0.0
+  1     0.        0.        0.        200.       0.
+DATA SET 3 *** new well inj ***
+1  2  1  2
+1095  1460
+1 1 0 1 1 0
+1 1 1 0 0
+0 0 0 0 0
+0 0 0 0 0
+5. 1. 15.
+WELL P-1 PRODUCING AT 300 BOPD
+0 1 0
+--Mod well
+P-1
+1   1   0   0
+  27   27   1  5.1   0.0
+  1     0.        0.        0.        200.       0.
+DATA SET 4 *** new well inj ***
+1  8  1  2
+1825 2190 2555 2920 3285 3650 4015 4380
+1 1 0 1 1 0
+1 1 1 0 0
+0 0 0 0 0
+0 0 0 0 0
+5. 1. 15.
+WELL P-1 PRODUCING AT 300 BOPD
+0 1 0
+--Mod well
+P-1
+1   1   0   0
+  27   27   1  5.1   0.0
+  1     0.        0.        0.        200.       0.
+DATA SET 5 *** new well inj ***
+1  5  1  2
+4745 5110 5475 5840 6205
+1 1 0 1 1 0
+1 1 1 0 0
+0 0 0 0 0
+0 0 0 0 0
+5. 1. 15.
+WELL P-1 PRODUCING AT 300 BOPD
+0 1 0
+--Mod well
+P-1
+1   1   0   0
+  27   27   1  5.1   0.0
+  1     0.        0.        0.        200.       0.
+DATA SET 6 *** new well inj ***
+1  6  1  2
+6570 6935 7300 7665 8030 8395 8760
+1 1 0 1 1 0
+1 1 1 0 0
+0 0 0 0 0
+0 0 0 0 0
+5. 1. 15.
+WELL P-1 PRODUCING AT 300 BOPD
+0 1 0
+--Mod well
+P-1
+1   1   0   0
+  27   27   1  5.1   0.0
+  1     0.        0.        0.        200.       0.

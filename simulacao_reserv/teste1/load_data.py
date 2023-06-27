@@ -9,23 +9,25 @@ file_name_tss = 'ITEMP.TSS'
 file_name_arr = 'ITEMP.ARR'
 
 name_column = '-'
-# name_column = 'base22'
+# name_column = 'base24'
 file_name_csv_to_save = name_column + '.csv'
 file_name_arr_to_save = name_column + '_arr.csv'
 
 arr_files = ['base_arr.csv', 'base2_arr.csv', 'base3_c_arr.csv', 'base3_c3_col_arr.csv', 'base12_arr.csv', 
-             'base13_arr.csv', 'base14_arr.csv', 'base15_arr.csv', 'base16_arr.csv', 'base17_arr.csv', 
+             'base13_arr.csv', 'base14_arr.csv','base15_arr.csv', 'base16_arr.csv', 'base17_arr.csv', 
              'base18_arr.csv', 'base19_arr.csv', 'base20_arr.csv', 'base21_arr.csv',
-             'base22_arr.csv']
+             'base22_arr.csv', 'base23_arr.csv', 'base24_arr.csv']
 
 file_names = ['base.csv', 'base2.csv', 'base3.csv', 'base4.csv', 'base5.csv', 'base6.csv', 'base7.csv',
               'base8.csv', 'base3_c.csv', 'base3_c2.csv', 'base3_c3_col.csv', 'base10.csv', 'base11.csv',
               'base12.csv', 'base13.csv', 'base14.csv', 'base15.csv', 'base16.csv', 'base17.csv',
-              'base18.csv', 'base19.csv', 'base20.csv', 'base21.csv', 'base22.csv']
+              'base18.csv', 'base19.csv', 'base20.csv', 'base21.csv', 'base22.csv', 'base23.csv',
+              'base24.csv']
 
 names_column = ['base', 'base2', 'base3', 'base4', 'base5', 'base6', 'base7', 'base8' 'base3_c',
-                'base3_c2', 'base3_c3_col', 'base10', 'base11', 'base12', 'base13', 'base14', 'base15',
-                'base16', 'base17', 'base18', 'base19', 'base20', 'base21', 'base22']
+                'base3_c2', 'base3_c3_col', 'base10', 'base11', 'base12', 'base13', 'base14',
+                'base15', 'base16', 'base17', 'base18', 'base19', 'base20', 'base21', 'base22', 'base23',
+                'base24']
 
 description = {
     'base': 'caso sem alteracao',
@@ -51,7 +53,9 @@ description = {
     'base19': 'caso base12 com refinamento da malha em x e y',
     'base20': 'caso base19 com alteracao da taxa de producao total para 310 em 1825 dias',
     'base21': 'caso base20 com campo de permeabilidade heterogeneo',
-    'base22': 'caso base21 com alteracao das taxas de producao'
+    'base22': 'caso base21 com alteracao das taxas de producao',
+    'base23': 'caso base14 com alteracao da pressao maxima para 8000',
+    'base24': 'caso base20 (1/4) com 27x27 volumes e alteracao na producao e injecao'
 }
 
 def load_from_tss_and_save(file_name, name_col, to_save_name):
@@ -154,7 +158,7 @@ def create_gif(case):
 # load_from_tss_and_save(file_name_tss, name_column, file_name_csv_to_save)
 # load_arr_file_and_save(file_name_arr, file_name_arr_to_save, name_column)
 
-# cases = ['base3_c3_col', 'base12', 'base18', 'base20']
-cases = ['base22']
-for case in cases:
-    create_gif(case)
+# # cases = ['base3_c3_col', 'base12', 'base18', 'base20']
+# cases = ['base22']
+# for case in cases:
+#     create_gif(case)
